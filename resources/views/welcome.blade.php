@@ -4,49 +4,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Styles -->
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<!-- onload="onLoadFunct()" -->
 
-<body>
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
+<body id="bg-img">
+    <div id="app">
+        <!-- <router-link to="/">Home </router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/work">Prtfolio</router-link>
+        <router-link to="/contact">Contact</router-link> -->
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
+        <!-- <hr> -->
 
-        <div class="content">
-            <div class="title m-b-md">
-                Laravel home page
-            </div>
-
-            <div class="links">
-                <a href="https://laravel.com/docs">Docs</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://blog.laravel.com">Blog</a>
-                <a href="https://nova.laravel.com">Nova</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://vapor.laravel.com">Vapor</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>
-            </div>
-        </div>
+        <router-view> </router-view>
     </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="/js/app.js"></script> -->
+    <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+
 </body>
 
 </html>
